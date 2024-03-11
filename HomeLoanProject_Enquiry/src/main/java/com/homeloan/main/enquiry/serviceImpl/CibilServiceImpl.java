@@ -3,6 +3,7 @@ package com.homeloan.main.enquiry.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.homeloan.main.enquiry.model.UserEnquiry;
 import com.homeloan.main.enquiry.repository.CibilRepository;
 import com.homeloan.main.enquiry.service.CibilService;
 
@@ -10,4 +11,6 @@ import com.homeloan.main.enquiry.service.CibilService;
 public class CibilServiceImpl implements CibilService{
 
 	@Autowired private CibilRepository cibilRepository;
+
+
 }

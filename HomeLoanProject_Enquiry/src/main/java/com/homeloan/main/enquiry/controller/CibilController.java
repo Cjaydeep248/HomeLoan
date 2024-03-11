@@ -1,8 +1,10 @@
 package com.homeloan.main.enquiry.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.ResponseEntity;import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.homeloan.main.enquiry.service.CibilService;
 
@@ -11,4 +13,7 @@ import com.homeloan.main.enquiry.service.CibilService;
 public class CibilController {
 
 	@Autowired private CibilService cibilService;
+	
+	
+	
 }

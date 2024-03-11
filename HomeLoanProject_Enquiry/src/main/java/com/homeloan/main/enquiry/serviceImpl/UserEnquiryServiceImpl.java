@@ -3,6 +3,7 @@ package com.homeloan.main.enquiry.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.homeloan.main.enquiry.model.UserEnquiry;
 import com.homeloan.main.enquiry.repository.UserEnquiryRepository;
 import com.homeloan.main.enquiry.service.UserEnquiryService;
 
@@ -10,4 +11,10 @@ import com.homeloan.main.enquiry.service.UserEnquiryService;
 public class UserEnquiryServiceImpl implements UserEnquiryService{
 
 	@Autowired private UserEnquiryRepository enquiryRepository;
+
+	@Override
+	public void saveUserEnquiry(UserEnquiry us) {
+		enquiryRepository.save(us);
+		
+	}
 }
