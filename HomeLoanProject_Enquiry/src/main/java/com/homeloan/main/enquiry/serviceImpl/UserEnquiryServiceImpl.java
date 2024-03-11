@@ -1,5 +1,7 @@
 package com.homeloan.main.enquiry.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,14 @@ public class UserEnquiryServiceImpl implements UserEnquiryService{
 	@Autowired private UserEnquiryRepository enquiryRepository;
 
 	@Override
-	public void saveUserEnquiry(UserEnquiry us) {
-		enquiryRepository.save(us);
+	public UserEnquiry saveUserEnquiry(UserEnquiry userenquiry) {
+		return enquiryRepository.save(userenquiry);
 		
+	}
+
+	@Override
+	public List<UserEnquiry> getuserenquiry() {
+
+		return enquiryRepository.findAll();
 	}
 }

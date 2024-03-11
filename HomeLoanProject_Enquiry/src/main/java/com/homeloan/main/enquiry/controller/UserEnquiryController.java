@@ -1,8 +1,12 @@
 package com.homeloan.main.enquiry.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,13 +20,23 @@ public class UserEnquiryController {
 
 	@Autowired private UserEnquiryService userEnquiryService;
 	
-	@PostMapping("/save")
-	public ResponseEntity<UserEnquiry> saveenq(@RequestBody UserEnquiry us)
+	@PostMapping("/saveenquiry")
+	public ResponseEntity<UserEnquiry> saveenquiry(@RequestBody UserEnquiry userenquiry)
 	{
 		
-		userEnquiryService.saveUserEnquiry(us);
+	UserEnquiry userenq	=userEnquiryService.saveUserEnquiry(userenquiry);
 		
-		return null;
+		return new ResponseEntity<UserEnquiry>(userenquiry, HttpStatus.CREATED);
+		
+	}
+	
+	
+	@GetMapping("/getuserenquiry")
+	public ResponseEntity <List<UserEnquiry>> getuserdata()
+	{
+		List<UserEnquiry> getalluserequiry=userEnquiryService.getuserenquiry();
+		return new ResponseEntity<List<UserEnquiry>>(getalluserequiry,HttpStatus.OK);
+		
 		
 	}
 }
