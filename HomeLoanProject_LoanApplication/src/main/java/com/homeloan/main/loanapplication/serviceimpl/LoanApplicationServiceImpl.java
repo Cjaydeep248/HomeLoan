@@ -17,6 +17,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
 	@Autowired private LoanApplicationRepository loanapplicationrepository;
 	
 	@Override
+<<<<<<< HEAD
 	public Customer saveCustomerDetails(String customerDetails, String adhar, String pan, String passbook, String income, String photo) throws Exception {
 	    ObjectMapper mapper = new ObjectMapper();
 	    Customer c = mapper.readValue(customerDetails, Customer.class);
@@ -33,6 +34,30 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
 	        e.printStackTrace();
 	    }
 	    return c;
+=======
+	public Customer saveCustomerDetails(String customerDetails, MultipartFile adhar, MultipartFile pan,
+			MultipartFile passbook, MultipartFile income, MultipartFile photo) throws Exception 
+	{
+		
+		ObjectMapper mapper=new ObjectMapper();
+		Customer c=mapper.readValue(customerDetails, Customer.class);
+		CustomerDocument cd = new CustomerDocument(); 
+		try
+		{
+			cd.setAdharCard(adhar.getBytes());
+			cd.setPanCard(pan.getBytes());
+			cd.setBankPassbook(passbook.getBytes());
+			cd.setCustomerPhoto(photo.getBytes());
+			cd.setIncomeCertificate(income.getBytes());
+			c.setDocument(cd);
+			return loanapplicationrepository.save(c);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return c;
+		
+>>>>>>> branch 'Trupti' of https://github.com/Cjaydeep248/HomeLoan.git
 	}
 
 	@Override

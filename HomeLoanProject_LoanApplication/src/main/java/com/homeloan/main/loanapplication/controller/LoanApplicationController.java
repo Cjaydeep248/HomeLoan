@@ -22,6 +22,7 @@ public class LoanApplicationController {
 	@Autowired private LoanApplicationService loanapplicationservice;
 	
 	@PostMapping("/saveCustomerDetails")
+<<<<<<< HEAD
 	public ResponseEntity<Customer> saveCustomerData(@RequestPart("customer") String customerDetails,
 	                                                  @RequestPart("adhar") String adhar,
 	                                                  @RequestPart("pan") String pan,
@@ -32,6 +33,18 @@ public class LoanApplicationController {
 	    return new ResponseEntity<Customer>(list, HttpStatus.OK);
 	}
 
+=======
+	public ResponseEntity<Customer> saveCustomerData(@RequestPart ("customer") String customerDetails,
+			                                       @RequestPart ("adharCard") MultipartFile adhar,
+			                                       @RequestPart ("panCard") MultipartFile pan,
+			                                       @RequestPart ("bankPassbook") MultipartFile passbook,
+			                                       @RequestPart ("incomeCertificate") MultipartFile income,
+			                                       @RequestPart ("customerPhoto") MultipartFile photo) throws Exception
+	{
+		Customer list=loanapplicationservice.saveCustomerDetails(customerDetails,adhar,pan,passbook,income,photo);
+		return new ResponseEntity<Customer>(list,HttpStatus.OK);
+	}
+>>>>>>> branch 'Trupti' of https://github.com/Cjaydeep248/HomeLoan.git
 	@GetMapping("/getCustomerDetails")
 	public ResponseEntity<List<Customer>> getAllCustomerData()
 	{

@@ -27,7 +27,11 @@ public class Customer {
 	@Column(unique = true)	
 	private String email;
 	@Column(unique = true)
+<<<<<<< HEAD
 	private String username;
+=======
+	private String userName;
+>>>>>>> branch 'Trupti' of https://github.com/Cjaydeep248/HomeLoan.git
 	private String password;
 	   @OneToOne(cascade = CascadeType.ALL)
 	private Bank bank;
